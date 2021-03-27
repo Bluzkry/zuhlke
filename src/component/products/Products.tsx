@@ -3,12 +3,14 @@ import './Products.css';
 import {Product as ProductModel} from '../../model/product';
 import {ProductService} from '../../service/product.service';
 import Product from '../product/Product';
+import {CartProduct} from '../../model/cartProduct';
 
 interface ProductsProps {
     productService: ProductService;
+    setCart: React.Dispatch<React.SetStateAction<CartProduct[]>>;
 }
 
-const Products: FC<ProductsProps> = (({productService}) => {
+const Products: FC<ProductsProps> = (({productService, setCart}) => {
     const [products, setProducts] = useState<ProductModel[]>([]);
 
     useEffect(() => {
@@ -18,7 +20,13 @@ const Products: FC<ProductsProps> = (({productService}) => {
     return (
         products.length === 0 ? null :
             <div className='products-container'>
-                    {products.map(product => <Product key={product.id} product={product}/>)}
+                    {products.map(product =>
+                        <Product
+                            key={product.id}
+                            product={product}
+                            setCart={setCart}
+                        />
+                    )}
             </div>
     );
 });

@@ -1,15 +1,32 @@
 import React, {FC} from 'react';
+import cloneDeep from 'lodash-es/cloneDeep';
 import './Product.css';
 import {Product as ProductModel} from '../../model/product';
+import {CartProduct} from '../../model/cartProduct';
 
 interface ProductProps {
     product: ProductModel;
+    setCart: React.Dispatch<React.SetStateAction<CartProduct[]>>;
 }
 
-const Product: FC<ProductProps> = (({product}) => {
+const Product: FC<ProductProps> = (({product, setCart}) => {
 
     const addToCart = () => {
-        // TODO - implement adding of product to cart
+        setCart(prevProducts => {
+            let updatedProducts = cloneDeep(prevProducts);
+
+            const newProduct = updatedProducts.some(({id}) => id === product.id);
+            if (newProduct) {
+                updatedProducts = updatedProducts.map(updatedProduct => {
+                    if (updatedProduct.id === product.id) updatedProduct.quantity++;
+                    return updatedProduct;
+                })
+            } else {
+                updatedProducts.push({...product, quantity: 1});
+            }
+
+            return updatedProducts;
+        });
     };
 
     return (
@@ -17,7 +34,7 @@ const Product: FC<ProductProps> = (({product}) => {
             <figure className='product blue'>
                 <div>
                     <img src={product.imgUrl} alt='product'/>
-                    <div className='price'>125.25$</div>
+                    <div className='price'>{product.price}$</div>
                 </div>
                 <figcaption>
                     <h3>{product.name}</h3>
