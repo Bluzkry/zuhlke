@@ -26,7 +26,7 @@ const ShoppingCart: FC<ShoppingCartProps> = (({cart, setCart}) => {
     return (
         <div className="cart">
             <div>
-                {cart.map(product => <ShoppingCartProduct product={product} setCart={setCart} />)}
+                {cart.map(product => <ShoppingCartProduct key={product.id} product={product} setCart={setCart} />)}
             </div>
             <div className="total-container">
                 <div className="total">

@@ -1,5 +1,5 @@
 .cart {
-  padding: 0 5% 3%;
+  padding: 0 5% 5%;
 }
 
 .cart-empty {
@@ -32,4 +32,12 @@
 
 .total-number {
   text-align: right;
+}
+
+@media only screen and (max-width: 1024px) {
+  .total-container {
+    flex-direction: column;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
 }

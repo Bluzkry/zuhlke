@@ -36,3 +36,23 @@
   border-radius: 10px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
 }
+
+@media only screen and (max-width: 1024px) {
+  .cart-product {
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+
+  .cart-product > * {
+    display: flex;
+    max-width: 100%;
+  }
+
+  .cart-product-image {
+    margin-bottom: 1rem;
+  }
+
+  .cart-product-button {
+    margin-top: 1rem;
+  }
+}

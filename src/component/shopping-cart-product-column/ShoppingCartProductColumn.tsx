@@ -1,4 +1,5 @@
 import React, {FC} from 'react';
+import './ShoppingCartProductColumn.css';
 
 interface ShoppingCartProductColumnProps {
     title: string;
@@ -6,8 +7,8 @@ interface ShoppingCartProductColumnProps {
 }
 
 const ShoppingCartProductColumn: FC<ShoppingCartProductColumnProps> = (({title, item}) => (
-        <div>
-            <h4>{title}</h4>
+        <div className='cart-column'>
+            <h3>{title}</h3>
             <p>{item}</p>
         </div>
     )

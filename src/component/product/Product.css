@@ -196,3 +196,9 @@ figure.product.hover img {
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
 }
+
+@media only screen and (max-width: 1024px) {
+    figure.product {
+        max-width: 85%;
+    }
+}
