@@ -1,0 +1,35 @@
+.cart {
+  padding: 0 5% 3%;
+}
+
+.cart-empty {
+  margin: 3% 5%;
+  padding: 1%;
+  text-align: center;
+  background-color: white;
+  border: 1px solid lightgrey;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+}
+
+.total-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.total {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.total > * {
+  margin: 0.5rem 0 0;
+}
+
+.total-title {
+  text-decoration: underline
+}
+
+.total-number {
+  text-align: right;
+}

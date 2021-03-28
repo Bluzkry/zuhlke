@@ -15,14 +15,24 @@ const ShoppingCart: FC<ShoppingCartProps> = (({cart, setCart}) => {
         .toFixed(2)
         + '$';
 
+    if (cart.length === 0) {
+        return (
+            <div className="cart-empty">
+                <h2>Please add some items to your shopping cart.</h2>
+            </div>
+        );
+    }
+
     return (
-        <div>
+        <div className="cart">
             <div>
                 {cart.map(product => <ShoppingCartProduct product={product} setCart={setCart} />)}
-            <div>
             </div>
-                <h4>Total amount for payment</h4>
-                <p>{total}</p>
+            <div className="total-container">
+                <div className="total">
+                    <h4 className="total-title">Total amount for payment</h4>
+                    <p className="total-number">{total}</p>
+                </div>
             </div>
         </div>
     );

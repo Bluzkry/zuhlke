@@ -7,7 +7,7 @@ interface ShoppingCartProductColumnProps {
 
 const ShoppingCartProductColumn: FC<ShoppingCartProductColumnProps> = (({title, item}) => (
         <div>
-            <h3>{title}</h3>
+            <h4>{title}</h4>
             <p>{item}</p>
         </div>
     )

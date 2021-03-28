@@ -31,6 +31,7 @@ figure.product img {
     max-width: 100%;
     vertical-align: top;
     max-height: 200px;
+    min-height: 200px;
 }
 
 figure.product figcaption {
