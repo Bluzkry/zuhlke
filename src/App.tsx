@@ -30,7 +30,7 @@ const App = () => {
                 quantity={cartQuantity}
             />
             {isShoppingCartShown
-                ? <ShoppingCart/>
+                ? <ShoppingCart cart={cart} setCart={setCart} />
                 : <Products productService={productService} setCart={setCart}/>
             }
         </div>
