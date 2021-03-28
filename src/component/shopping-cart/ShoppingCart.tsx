@@ -17,21 +17,21 @@ const ShoppingCart: FC<ShoppingCartProps> = (({cart, setCart}) => {
 
     if (cart.length === 0) {
         return (
-            <div className="cart-empty">
+            <div className='cart-empty' data-testid='cart-empty'>
                 <h2>Please add some items to your shopping cart.</h2>
             </div>
         );
     }
 
     return (
-        <div className="cart">
+        <div className='cart'>
             <div>
                 {cart.map(product => <ShoppingCartProduct key={product.id} product={product} setCart={setCart} />)}
             </div>
-            <div className="total-container">
-                <div className="total">
-                    <h4 className="total-title">Total amount for payment</h4>
-                    <p className="total-number">{total}</p>
+            <div className='total-container'>
+                <div className='total'>
+                    <h4 className='total-title'>Total amount for payment</h4>
+                    <p className='total-number'>{total}</p>
                 </div>
             </div>
         </div>

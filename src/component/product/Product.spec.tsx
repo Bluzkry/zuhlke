@@ -14,7 +14,7 @@ describe('product component', () => {
            price: 99
        };
 
-       const { getByText, getByRole } = render(<Product product={dummyProduct} />);
+       const { getByText, getByRole } = render(<Product product={dummyProduct} setCart={() => {}} />);
 
        const productImage = getByRole('img') as HTMLImageElement;
        expect(productImage.src).toEqual(dummyProduct.imgUrl);

@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import cloneDeep from 'lodash-es/cloneDeep';
+import _ from 'lodash';
 import './Product.css';
 import {Product as ProductModel} from '../../model/product';
 import {CartProduct} from '../../model/cartProduct';
@@ -13,7 +13,7 @@ const Product: FC<ProductProps> = (({product, setCart}) => {
 
     const addToCart = () => {
         setCart(prevProducts => {
-            let updatedProducts = cloneDeep(prevProducts);
+            let updatedProducts = _.cloneDeep(prevProducts);
 
             const newProduct = updatedProducts.some(({id}) => id === product.id);
             if (newProduct) {

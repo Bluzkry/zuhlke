@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import cloneDeep from 'lodash-es/cloneDeep';
+import _ from 'lodash';
 import './ShoppingCartProduct.css';
 import ShoppingCartProductColumn from '../shopping-cart-product-column/ShoppingCartProductColumn';
 import {CartProduct} from '../../model/cartProduct';
@@ -20,7 +20,7 @@ const ShoppingCartProduct: FC<ShoppingCartProductProps> = (({product, setCart}) 
     const totalPrice = (price * quantity).toFixed(2) + '$';
 
     const removeFromCart = (itemId: number) => {
-        setCart(prevProducts => cloneDeep(prevProducts).filter(({id}) => id !== itemId));
+        setCart(prevProducts => _.cloneDeep(prevProducts).filter(({id}) => id !== itemId));
     };
 
     return (
@@ -31,7 +31,7 @@ const ShoppingCartProduct: FC<ShoppingCartProductProps> = (({product, setCart}) 
             <ShoppingCartProductColumn title='Qty' item={quantity}/>
             <ShoppingCartProductColumn title='Price per 1pc' item={singlePrice}/>
             <ShoppingCartProductColumn title='Line total' item={totalPrice}/>
-            <div className='cart-product-button'><button onClick={() => removeFromCart(id)}>Remove item</button></div>
+            <div className='cart-product-button' data-testid='cart-product-button'><button onClick={() => removeFromCart(id)}>Remove item</button></div>
         </div>
     );
 });
