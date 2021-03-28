@@ -1,3 +1,5 @@
-.cart-column > * {
-  width: 50%;
+@media only screen and (max-width: 1024px) {
+  .cart-column > * {
+    width: 50%;
+  }
 }

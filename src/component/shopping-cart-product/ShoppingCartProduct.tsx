@@ -1,8 +1,8 @@
 import React, {FC} from 'react';
-import _ from 'lodash';
 import './ShoppingCartProduct.css';
 import ShoppingCartProductColumn from '../shopping-cart-product-column/ShoppingCartProductColumn';
 import {CartProduct} from '../../model/cartProduct';
+import {deepClone} from "../../utils/utils";
 
 interface ShoppingCartProductProps {
     product: CartProduct;
@@ -20,7 +20,7 @@ const ShoppingCartProduct: FC<ShoppingCartProductProps> = (({product, setCart}) 
     const totalPrice = (price * quantity).toFixed(2) + '$';
 
     const removeFromCart = (itemId: number) => {
-        setCart(prevProducts => _.cloneDeep(prevProducts).filter(({id}) => id !== itemId));
+        setCart(prevProducts => deepClone(prevProducts).filter((prevProduct:CartProduct) => prevProduct.id !== itemId));
     };
 
     return (
